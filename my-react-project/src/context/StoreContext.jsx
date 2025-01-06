@@ -3,10 +3,18 @@ import { food_list } from "../assets/assets";
 
 export const StoreContext = createContext(null);
 
+
 const StoreContextProvider = (props) => {
 
 
    const[cartItems,setCartItems]=useState({})
+   const[login,setLogin]=useState(false)
+
+   const clearCart = () => {
+    setCartItems({});
+  };
+
+
 
    const addToCart=(itemId)=>{
 
@@ -26,6 +34,20 @@ const StoreContextProvider = (props) => {
 
 
 
+     const getToatalCartAmount=()=>{
+
+             let totalAmount=0;
+              for(const item in cartItems){
+                if(cartItems[item] >0){
+
+                   let itemInfo= food_list.find((product)=>product._id===item);
+                   totalAmount+=itemInfo.price*cartItems[item];
+                }
+              }
+              return totalAmount;
+
+     }
+
 
 // console.log(props)
      const contextvalue={
@@ -33,7 +55,11 @@ const StoreContextProvider = (props) => {
      cartItems,
      setCartItems,
      addToCart,
-     removeFromCart
+     removeFromCart,
+     login,
+     setLogin,
+     getToatalCartAmount,
+     clearCart
 
      }
   return (
