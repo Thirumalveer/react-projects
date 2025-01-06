@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "./components/navbar/Navbar";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/pages/Home/Home";
-import Cart from "./components/pages/Cart/Cart";
+import CarT from "./components/pages/Cart/Cart";
 import Footer from "./components/Footer/Footer";
 import LoginPopup from "./components/LoginPopup/LoginPopup";
 import PlaceOrder from "./components/pages/placeorder/PlaceOrder";
@@ -22,7 +22,7 @@ const App = () => {
         <Route path="/" element={<Home />}></Route>
        < Route path="/ExploreMenu" element={<ExploreMenu />} />
         <Route path="/order" element={<PlaceOrder />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={<CarT />} />
       </Routes>
     </div>
     <Footer/>
